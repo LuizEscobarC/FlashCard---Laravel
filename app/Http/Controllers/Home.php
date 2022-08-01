@@ -15,7 +15,7 @@ class Home extends Controller
     public static function lastFolders(): ?Object
     {
         return view('begin', [
-            'folders' => \App\Folder::select('*')->limit(5)->orderByDesc('created_at')->get()
+            'folders' => \App\Folders::select('*')->limit(5)->orderByDesc('created_at')->get()
         ]);
     }
 }

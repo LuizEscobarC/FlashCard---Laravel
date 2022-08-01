@@ -3,13 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
 /**
  *
  */
-class Folder extends Model
+class Folders extends Model
 {
 
     /**
@@ -64,7 +63,7 @@ class Folder extends Model
     public static function updateFolder(string $stringData): bool
     {
         parse_str($stringData, $data);
-        $folder = Folder::find($data['folder_id']);
+        $folder = Folders::find($data['folder_id']);
         $folder->title = $data['title'];
         $folder->description = $data['description'];
         if ($folder->save()) {

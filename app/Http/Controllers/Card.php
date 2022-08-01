@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Folder;
+use App\Folders;
 use App\TraitCallback;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -24,8 +24,8 @@ class Card extends Controller
     public static function studyCards(int $folderId): View
     {
         return view('cards', [
-            'folder' => Folder::find($folderId),
-            'card' => (new \App\Folder())->pager($folderId),
+            'folder' => Folders::find($folderId),
+            'card' => (new \App\Folders())->pager($folderId),
         ]);
     }
 
@@ -48,7 +48,7 @@ class Card extends Controller
     {
         return view('cards-edit', [
             'cards' => (new \App\Card())->where('folder_id', $idFolder)->get(),
-            'folder' => Folder::find($idFolder)
+            'folder' => Folders::find($idFolder)
         ]);
     }
 
@@ -61,7 +61,7 @@ class Card extends Controller
     {
         $data = $data->except('_token');
         $data['user_id'] = 1;
-        $result = \App\Folder::create($data);
+        $result = \App\Folders::create($data);
 
         if (!empty($result->id)) {
             return self::callback(['folderId'=> $result->id, 'message' => 'Pasta e cartões cadastrados com sucesso!']);
@@ -95,7 +95,7 @@ class Card extends Controller
             $hrefId = $dataArray['folder_id'];
 
             // SALVA O ARQUIVO SE HOUVER
-            $dataArray['img'] = Folder::saveFolder(((!empty($forms[$i * 1000]) ? $forms[$i * 1000] : null)));
+            $dataArray['img'] = Folders::saveFolder(((!empty($forms[$i * 1000]) ? $forms[$i * 1000] : null)));
             \App\Card::create($dataArray);
         }
 
@@ -117,7 +117,7 @@ class Card extends Controller
         $forms = $request->except(['_token', 'folder']);
 
         // ATUALIZA A FOLDER
-        Folder::updateFolder($request->folder);
+        Folders::updateFolder($request->folder);
 
         for ($i = 2; $i <= count($forms); $i++) {
             if (empty($forms[$i])) {

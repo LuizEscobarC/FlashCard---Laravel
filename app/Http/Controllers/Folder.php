@@ -22,7 +22,7 @@ class Folder extends Controller
         $filter = ($filter->filter ?: null);
 
         return view('begin', [
-            'folders' => \App\Folder::select('*')
+            'folders' => \App\Folders::select('*')
                 ->where('title', 'like', "%{$filter}%")
                 ->orWhere( 'description', 'like', "%{$filter}%")
                 ->orderByDesc('created_at')
@@ -41,7 +41,7 @@ class Folder extends Controller
             \App\Card::unlinkFile($img->img);
         }
 
-        $delete = \App\Folder::destroy($request->folder_id);
+        $delete = \App\Folders::destroy($request->folder_id);
 
         if ($delete) {
             return self::callback(['message' => 'Pasta deletada com sucesso.',  'href' => route('home.begin')]);
