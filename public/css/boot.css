@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 1em;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.bg_red {
+    background: #ff464f;
+}
+
+.bg_red:hover {
+    background: #ff575f;
+}
+
+.bg_light_green_aside {
+    background: #25c685;
+}
+
+.bg_light_green_aside:hover {
+    background: #3dd598;
+}
+
+.bg_orange {
+    background: #ff8a34;
+}
+
+.bg_orange:hover {
+    background: #ff974a;
+}
+
+.bg_opacity_green {
+    background: #d4f5e9;
+}
+
+.bg_purple {
+    background: #6952dc;
+}
+
+.bg_purple:hover {
+    background: #755fe2;
+}
+
+.bg_light_blue {
+    background: #0062ff;
+}
+
+.bg_light_blue:hover {
+    background: #e3eeff;
+}
+
+.bg_black_green {
+    background: #1a3b34;
+}
+
+.bg_black_green:hover {
+    background: #899a96;
+}
+
+.low_contrast_orange {
+    background: #ff974a;
+}
+
+.bg_light_green {
+    background: #3dd598;
+}
+
+.bg_light_green:hover {
+    background: #d4f5e9;
+}
